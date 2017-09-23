@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Animal Quiz</string>
+    <string name="stronglyAgree">Strongly Agree</string>
+    <string name="example_question">Example Question</string>
+    <string name="submit_answer">Submit Answer</string>
+    <string-array name="animals_array">
+        <item>Strongly Disagree</item>
+        <item>Disagree</item>
+        <item>Agree</item>
+        <item>Strongly Agree</item>
+    </string-array>
+
+</resources>
