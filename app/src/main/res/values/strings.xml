@@ -3,9 +3,15 @@
     <string name="stronglyAgree">Strongly Agree</string>
     <string name="example_question">Example Question</string>
     <string name="submit_answer">Submit Answer</string>
+    <string name="sample_text">Sample Text</string>
+    <string name="textview">TextView</string>
+    <string name="write_your_caption_here">Write your caption here!</string>
+    <string name="your_animal_soulmate">Your animal soulmate</string>
+    <string name="textviewexampletext">TextViewExampleText</string>
     <string-array name="animals_array">
         <item>Strongly Disagree</item>
         <item>Disagree</item>
+        <item>Neutral</item>
         <item>Agree</item>
         <item>Strongly Agree</item>
     </string-array>

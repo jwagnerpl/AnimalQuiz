@@ -22,25 +22,36 @@ import static teamtreehouse.com.animalquiz.R2.id.questionTextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R2.id.questionTextView) TextView questionTextView;
-    @BindView(R2.id.animals_spinner) Spinner animalsSpinner;
-    @BindView(R2.id.submitButton) Button submitButton;
-    @BindView(R2.id.captionEditText) EditText captionEditText;
+    @BindView(R2.id.questionTextView)
+    TextView questionTextView;
+    @BindView(R2.id.animals_spinner)
+    Spinner animalsSpinner;
+    @BindView(R2.id.submitButton)
+    Button submitButton;
+    @BindView(R2.id.captionEditText)
+    EditText captionEditText;
 
     int i = 0;
     public static String TAG = "";
 
-    int gameTotal = 0;
+    double gameTotal = 0;
 
-    public void scoreAnswer(int selectedItem){
-        switch(selectedItem){
-            case 0: gameTotal = gameTotal + 5;
+    public void scoreAnswer(int selectedItem) {
+        switch (selectedItem) {
+            case 0:
+                gameTotal = gameTotal + 0;
                 break;
-            case 1: gameTotal = gameTotal +10;
+            case 1:
+                gameTotal = gameTotal + 3;
                 break;
-            case 2: gameTotal = gameTotal +15;
+            case 2:
+                gameTotal = gameTotal + 6.25;
                 break;
-            case 3: gameTotal = gameTotal + 20;
+            case 3:
+                gameTotal = gameTotal + 9.25;
+                break;
+            case 4:
+                gameTotal = gameTotal + 12.5;
                 break;
         }
     }
@@ -52,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.animals_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.animals_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         animalsSpinner.setAdapter(adapter);
         questionTextView.setText(Question.questions[i].questionText);
@@ -63,15 +73,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 i++;
 
-                if(i < 5) {
+                if (i < 8) {
                     questionTextView.setText(Question.questions[i].questionText);
                     int selectedItem = animalsSpinner.getSelectedItemPosition();
                     scoreAnswer(selectedItem);
                 }
 
-                if (i == 5){
+
+                if (i == 8) {
+                    captionEditText.setVisibility(View.VISIBLE);
                     int selectedItem = animalsSpinner.getSelectedItemPosition();
                     scoreAnswer(selectedItem);
+                    String response = "Cool, write an awesome caption for your animal.";
+                    questionTextView.setText(response);
+                    animalsSpinner.setVisibility(View.GONE);
+                }
+
+                if (i == 9) {
                     Bundle extras = new Bundle();
                     extras.putString("GAME_TOTAL", gameTotal + "");
                     extras.putString("CAPTION", captionEditText.getText().toString());
@@ -82,8 +100,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
 
 }
