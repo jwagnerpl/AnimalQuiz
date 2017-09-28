@@ -54,6 +54,7 @@ public class ShowAnimal extends AppCompatActivity {
         Animal matchedAnimal = matchAnimal(Double.parseDouble(gameTotal));
         String matchedAnimalName = matchedAnimal.getAnimalName();
         animalText.setText(matchedAnimalName);
+        Toast.makeText(getApplicationContext(),"You are a " + matchedAnimalName,Toast.LENGTH_LONG).show();
         animalImage.setImageResource(matchedAnimal.getAnimalImage());
         animalDescription.setText(matchedAnimal.getAnimalDescription());
         captionTextView.setText(caption);
